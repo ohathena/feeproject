@@ -19,9 +19,9 @@ const Fashion = () => {
   ];
 
   return (
-    <div className="pt-[144px]">
+    <div className="pt-[170px]">
       {/* Hero Section */}
-      <div className="relative h-[70vh] overflow-hidden">
+      <div className="relative h-[85vh] overflow-hidden">
         <img 
           src="/fashion/hero-fashion.jpg" 
           alt="Fashion Collection"

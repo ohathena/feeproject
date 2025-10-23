@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [hoveredSection, setHoveredSection] = useState(null);
@@ -44,6 +45,7 @@ const Home = () => {
     { symbol: "◈", title: "Express Delivery", desc: "Worldwide in 2-5 days" },
     { symbol: "◇", title: "Authenticity Guarantee", desc: "Premium quality assured" }
   ];
+const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -108,6 +110,7 @@ const Home = () => {
                   <motion.button
                     whileHover={{ scale: 1.08, x: 4 }}
                     whileTap={{ scale: 0.95 }}
+                     onClick={() => navigate('/fashion')}
                     className="px-10 py-4 bg-white text-black text-sm font-medium uppercase tracking-widest shadow-2xl hover:shadow-white/20 transition-all duration-300"
                   >
                     Explore Collection
@@ -149,6 +152,7 @@ const Home = () => {
                   <motion.button
                     whileHover={{ scale: 1.08, x: 4 }}
                     whileTap={{ scale: 0.95 }}
+                     onClick={() => navigate('/beauty')}
                     className="px-10 py-4 bg-white text-black text-sm font-medium uppercase tracking-widest shadow-2xl hover:shadow-white/20 transition-all duration-300"
                   >
                     Explore Collection

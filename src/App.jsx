@@ -11,6 +11,8 @@ import Wishlist from "./components/Wishlist";
 import NewArrivals from "./components/NewArrivals";
 import Sale from './components/Sale';
 import Footer from './components/Footer';
+import Women from './components/women.jsx';
+import Men from './components/Men.jsx';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -25,6 +27,8 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/" element={<Home />} />
             <Route path="/fashion" element={<Fashion />} />
+             <Route path="/fashion/women" element={<Women />} />
+        <Route path="/fashion/men" element={<Men />} />
             <Route path="/fashion/kids" element={<KidsFashion />} />
             <Route path="/beauty" element={<Beauty />} />
             <Route path="/wishlist" element={<Wishlist />} />

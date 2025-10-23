@@ -13,23 +13,23 @@ const Bestsellers = () => {
     },
     {
       id: 2,
-      name: 'Classic Leather Jacket',
+      name: 'Classic Macrocannage Jacket',
       price: 199.99,
       image: '/products/jacket1.jpg',
-      category: 'Men'
-    },
-    {
-      id: 3,
-      name: 'Summer Collection Set',
-      price: 89.99,
-      image: '/products/summer1.jpg',
       category: 'Women'
     },
     {
+      id: 3,
+      name: 'Dior Oblique Short-Sleeved Shirt',
+      price: 89.99,
+      image: '/products/summer1.jpg',
+      category: 'Men'
+    },
+    {
       id: 4,
-      name: 'Premium Denim Jeans',
+      name: 'Premium Black Coat',
       price: 79.99,
-      image: '/products/jeans1.jpg',
+      image: '/products/coat1.jpg',
       category: 'Men'
     }
   ];
