@@ -23,7 +23,19 @@ const Signup = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-20 p-6 bg-white rounded-xl shadow-md">
+     <div
+      className="flex justify-center items-center min-h-screen bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/login.jpg')" }}
+    >
+    <div className="w-full max-w-md mx-auto mt-10 p-6 bg-white rounded-xl shadow-md">
+      <div className="flex justify-center mb-4">
+    <img
+      src="/logo.png" 
+      alt="Login Illustration"
+      className="w-45 h-24 object-contain"
+    />
+  </div>
+  <hr className="border-t-2 border-gray-300 my-4 w-1/2 mx-auto" />
       <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">Create Account</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -62,7 +74,7 @@ const Signup = () => {
             onChange={(e) => setFormData({...formData, confirmPassword: e.target.value})}
           />
         </div>
-        <button type="submit" className="btn-primary w-full">
+        <button type="submit" className="bg-gray-800/90 btn-primary w-full">
           Sign Up
         </button>
       </form>
@@ -72,6 +84,7 @@ const Signup = () => {
           Login
         </Link>
       </p>
+    </div>
     </div>
   );
 };

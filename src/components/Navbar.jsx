@@ -1,9 +1,17 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaHeart, FaShoppingCart, FaUser, FaSearch } from 'react-icons/fa';
 
-const Navbar = () => {
+const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setShowProfileMenu(false);
+    setIsAuthenticated(false);
+    navigate('/login');
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 w-full z-50">
@@ -17,17 +25,12 @@ const Navbar = () => {
       </div>
 
       {/* Main Navbar */}
-      <nav className="bg-white/95 backdrop-blur-md shadow-md">
+      <nav className="bg-white shadow-md">
         <div className="max-w-7xl mx-auto px-6">
-          {/* Upper Navbar */}
           <div className="h-24 flex items-center justify-between border-b border-gray-100">
             {/* Logo */}
             <Link to="/" className="flex items-center">
-              <img 
-                src="/logo.png" 
-                alt="Glamora Logo" 
-                className="h-20 w-auto"
-              />
+              <img src="/logo.png" alt="Glamora Logo" className="h-20 w-auto" />
             </Link>
 
             {/* Search Bar */}
@@ -57,7 +60,7 @@ const Navbar = () => {
                 >
                   <FaUser />
                 </button>
-                {/* Profile Dropdown */}
+
                 {showProfileMenu && (
                   <div className="absolute right-0 mt-4 w-48 bg-white rounded-lg shadow-xl py-2 border border-gray-100">
                     <Link to="/profile" className="block px-4 py-2 text-gray-700 hover:bg-rose-50">
@@ -66,7 +69,10 @@ const Navbar = () => {
                     <Link to="/orders" className="block px-4 py-2 text-gray-700 hover:bg-rose-50">
                       Orders
                     </Link>
-                    <button className="w-full text-left px-4 py-2 text-gray-700 hover:bg-rose-50">
+                    <button
+                      onClick={handleLogout}
+                      className="w-full text-left px-4 py-2 text-gray-700 hover:bg-rose-50"
+                    >
                       Logout
                     </button>
                   </div>
@@ -75,7 +81,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Lower Navbar - Categories */}
+          {/* Lower Navbar Links */}
           <div className="h-12 flex items-center justify-center space-x-12">
             <Link to="/" className="text-gray-600 hover:text-rose-500 font-medium">Home</Link>
             <Link to="/fashion" className="text-gray-600 hover:text-rose-500 font-medium">Fashion</Link>
