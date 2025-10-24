@@ -5,15 +5,15 @@ import { useNavigate } from 'react-router-dom';
 const KidsFashion = () => {
   const navigate = useNavigate();
   const ageGroups = [
-    { name: 'Baby (0-3)', image: '/fashion/kids/baby.jpg', path: '/fashion/kids/baby' },
-    { name: 'Toddler (3-5)', image: '/fashion/kids/toddler.jpg', path: '/fashion/kids/toddler' },
-    { name: 'Little Kids (5-7)', image: '/fashion/kids/little-kids.jpg', path: '/fashion/kids/little-kids' },
-    { name: 'Big Kids (7-12)', image: '/fashion/kids/big-kids.jpg', path: '/fashion/kids/big-kids' },
-    { name: 'Teens (12+)', image: '/fashion/kids/teens.jpg', path: '/fashion/kids/teens' }
+    { name: 'Baby (0-3)', image: 'https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?w=400&h=500&fit=crop', path: '/fashion/kids/baby' },
+    { name: 'Toddler (3-5)', image: 'https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=400&h=500&fit=crop', path: '/fashion/kids/toddler' },
+    { name: 'Little Kids (5-7)', image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=500&fit=crop', path: '/fashion/kids/little-kids' },
+    { name: 'Big Kids (7-12)', image: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&h=500&fit=crop', path: '/fashion/kids/big-kids' },
+    { name: 'Teens (12+)', image: 'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=400&h=500&fit=crop', path: '/fashion/kids/teens' }
   ];
 
   return (
-    <div className="min-h-[calc(100vh-80px)] bg-gray-50">
+    <div className="pt-[170px] min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto py-12 px-6">
         <motion.h1 
           initial={{ opacity: 0, y: -20 }}

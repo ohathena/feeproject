@@ -13,9 +13,9 @@ const Fashion = () => {
   ];
 
   const collections = [
-    { name: 'Summer Collection', image: '/fashion/summer.jpg', discount: '30% OFF' },
-    { name: 'Winter Essentials', image: '/fashion/winter.jpg', discount: '20% OFF' },
-    { name: 'Accessories', image: '/fashion/accessories.jpg', tag: 'NEW IN' }
+    { name: 'Summer Collection', image: '/fashion/summer.jpg', discount: '30% OFF', path: '/fashion/summer' },
+    { name: 'Winter Essentials', image: '/fashion/winter.jpg', discount: '20% OFF', path: '/fashion/winter' },
+    { name: 'Accessories', image: '/fashion/accessories.jpg', tag: 'NEW IN', path: '/fashion/accessories' }
   ];
 
   return (
@@ -83,6 +83,7 @@ const Fashion = () => {
                 key={collection.name}
                 whileHover={{ y: -10 }}
                 className="group cursor-pointer"
+                onClick={() => navigate(collection.path)}
               >
                 <div className="relative rounded-lg overflow-hidden shadow-lg">
                   <img 

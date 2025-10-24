@@ -5,7 +5,7 @@ import ProductModal from './ProductModal';
 import WishlistButton from './WishlistButton';
 import CartButton from './CartButton';
 
-const Women = () => {
+const Makeup = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [priceRange, setPriceRange] = useState([0, 10000]);
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -13,14 +13,14 @@ const Women = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const products = [
-    { id: 1, name: 'Elegant Summer Dress', price: 2499, category: 'dresses', image: '/products/dress1.jpg', rating: 4.5 },
-    { id: 2, name: 'Classic Winter Coat', price: 4999, category: 'outerwear', image: '/products/coat1.jpg', rating: 4.8 },
-    { id: 3, name: 'Stylish Jacket', price: 3499, category: 'outerwear', image: '/products/jacket1.jpg', rating: 4.6 },
-    { id: 4, name: 'Summer Collection Top', price: 1499, category: 'tops', image: '/products/summer1.jpg', rating: 4.3 },
-    { id: 5, name: 'Designer Dress', price: 5999, category: 'dresses', image: '/products/dress1.jpg', rating: 4.9 },
-    { id: 6, name: 'Casual Jacket', price: 2999, category: 'outerwear', image: '/products/jacket1.jpg', rating: 4.4 },
-    { id: 7, name: 'Premium Coat', price: 7999, category: 'outerwear', image: '/products/coat1.jpg', rating: 4.7 },
-    { id: 8, name: 'Trendy Summer Wear', price: 1999, category: 'tops', image: '/products/summer1.jpg', rating: 4.2 },
+    { id: 1, name: 'Matte Lipstick Set', price: 1499, category: 'lips', image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=500&fit=crop', rating: 4.8 },
+    { id: 2, name: 'Eye Shadow Palette', price: 1899, category: 'eyes', image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&h=500&fit=crop', rating: 4.9 },
+    { id: 3, name: 'Foundation', price: 2299, category: 'face', image: 'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=400&h=500&fit=crop', rating: 4.7 },
+    { id: 4, name: 'Mascara', price: 999, category: 'eyes', image: 'https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?w=400&h=500&fit=crop', rating: 4.6 },
+    { id: 5, name: 'Blush Palette', price: 1299, category: 'face', image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=500&fit=crop', rating: 4.8 },
+    { id: 6, name: 'Lip Gloss', price: 799, category: 'lips', image: 'https://images.unsplash.com/photo-1571875257727-256c39da42af?w=400&h=500&fit=crop', rating: 4.5 },
+    { id: 7, name: 'Eyeliner Pen', price: 699, category: 'eyes', image: 'https://images.unsplash.com/photo-1583241800698-c318c76ca4e8?w=400&h=500&fit=crop', rating: 4.7 },
+    { id: 8, name: 'Makeup Brush Set', price: 2499, category: 'tools', image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&h=500&fit=crop', rating: 4.9 },
   ];
 
   const filteredProducts = products.filter(p => 
@@ -31,67 +31,41 @@ const Women = () => {
   return (
     <div className="pt-[170px] min-h-screen bg-white">
       <div className="max-w-7xl mx-auto px-6 py-12">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
-        >
+        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
           <div className="w-24 h-[1px] bg-gray-800 mx-auto mb-6" />
-          <h1 className="text-6xl font-serif text-gray-900 mb-4">Women's Fashion</h1>
-          <p className="text-xl text-gray-600">Discover Your Style</p>
+          <h1 className="text-6xl font-serif text-gray-900 mb-4">Makeup</h1>
+          <p className="text-xl text-gray-600">Express Your Beauty</p>
         </motion.div>
 
         <div className="flex gap-8">
-          {/* Filter Sidebar */}
-          <motion.div
-            initial={{ x: -50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            className={`${showFilters ? 'block' : 'hidden'} lg:block w-64 flex-shrink-0`}
-          >
+          <motion.div initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} className={`${showFilters ? 'block' : 'hidden'} lg:block w-64 flex-shrink-0`}>
             <div className="bg-gray-50 p-6 rounded-lg sticky top-32">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-lg font-semibold">Filters</h3>
                 <FaFilter className="text-gray-600" />
               </div>
-
-              {/* Category Filter */}
               <div className="mb-8">
                 <h4 className="font-medium mb-4">Category</h4>
                 <div className="space-y-2">
-                  {['all', 'dresses', 'tops', 'outerwear'].map(cat => (
+                  {['all', 'face', 'eyes', 'lips', 'tools'].map(cat => (
                     <label key={cat} className="flex items-center cursor-pointer">
-                      <input
-                        type="radio"
-                        name="category"
-                        checked={selectedCategory === cat}
-                        onChange={() => setSelectedCategory(cat)}
-                        className="mr-2"
-                      />
+                      <input type="radio" name="category" checked={selectedCategory === cat} onChange={() => setSelectedCategory(cat)} className="mr-2" />
                       <span className="capitalize">{cat === 'all' ? 'All Items' : cat}</span>
                     </label>
                   ))}
                 </div>
               </div>
-
-              {/* Price Range Filter */}
               <div>
                 <h4 className="font-medium mb-4">Price Range</h4>
                 <div className="space-y-2">
                   {[
                     { label: 'All', range: [0, 10000] },
-                    { label: 'Under ₹2000', range: [0, 2000] },
-                    { label: '₹2000 - ₹4000', range: [2000, 4000] },
-                    { label: '₹4000 - ₹6000', range: [4000, 6000] },
-                    { label: 'Above ₹6000', range: [6000, 10000] },
+                    { label: 'Under ₹1000', range: [0, 1000] },
+                    { label: '₹1000 - ₹2000', range: [1000, 2000] },
+                    { label: 'Above ₹2000', range: [2000, 10000] },
                   ].map(option => (
                     <label key={option.label} className="flex items-center cursor-pointer">
-                      <input
-                        type="radio"
-                        name="price"
-                        checked={priceRange[0] === option.range[0] && priceRange[1] === option.range[1]}
-                        onChange={() => setPriceRange(option.range)}
-                        className="mr-2"
-                      />
+                      <input type="radio" name="price" checked={priceRange[0] === option.range[0] && priceRange[1] === option.range[1]} onChange={() => setPriceRange(option.range)} className="mr-2" />
                       <span>{option.label}</span>
                     </label>
                   ))}
@@ -100,38 +74,18 @@ const Women = () => {
             </div>
           </motion.div>
 
-          {/* Products Grid */}
           <div className="flex-1">
             <div className="flex justify-between items-center mb-6">
               <p className="text-gray-600">{filteredProducts.length} Products</p>
-              <button
-                onClick={() => setShowFilters(!showFilters)}
-                className="lg:hidden flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-lg"
-              >
+              <button onClick={() => setShowFilters(!showFilters)} className="lg:hidden flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-lg">
                 <FaFilter /> Filters
               </button>
             </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredProducts.map((product, idx) => (
-                <motion.div
-                  key={product.id}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.1 }}
-                  whileHover={{ y: -10 }}
-                  className="group cursor-pointer bg-white rounded-lg overflow-hidden shadow-lg"
-                  onClick={() => {
-                    setSelectedProduct(product);
-                    setIsModalOpen(true);
-                  }}
-                >
+                <motion.div key={product.id} initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: idx * 0.1 }} whileHover={{ y: -10 }} className="group cursor-pointer bg-white rounded-lg overflow-hidden shadow-lg" onClick={() => { setSelectedProduct(product); setIsModalOpen(true); }}>
                   <div className="relative overflow-hidden">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
+                    <img src={product.image} alt={product.name} className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-500" />
                     <div className="absolute top-4 right-4 space-y-2 opacity-0 group-hover:opacity-100 transition-opacity">
                       <WishlistButton product={product} />
@@ -155,14 +109,9 @@ const Women = () => {
           </div>
         </div>
       </div>
-      <ProductModal 
-        product={selectedProduct} 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        type="fashion"
-      />
+      <ProductModal product={selectedProduct ? {...selectedProduct, category: 'makeup'} : null} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} type="beauty" />
     </div>
   );
 };
 
-export default Women;
+export default Makeup;

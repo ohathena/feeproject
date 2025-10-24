@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -220,14 +219,14 @@ const navigate = useNavigate();
 
           <div className="grid grid-cols-4 gap-8">
             {[
-              { name: "Signature Perfume", category: "Fragrance", price: "₹8,500", image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=500&fit=crop" },
-              { name: "Radiance Serum", category: "Skincare", price: "₹4,200", image: "https://www.dotandkey.com/cdn/shop/files/1_e8b0f15f-f194-4d5c-b733-3ea1c099b04d.jpg?v=1744620473&width=700" },
-              { name: "Luxury Lipstick", category: "Makeup", price: "₹2,800", image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=500&fit=crop" },
-              { name: "Hydrating Mist", category: "Skincare", price: "₹3,500", image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=500&fit=crop" },
-              { name: "Night Cream", category: "Skincare", price: "₹5,200", image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&h=500&fit=crop" },
-              { name: "Rose Gold Palette", category: "Makeup", price: "₹6,800", image: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&h=500&fit=crop" },
-              { name: "Body Lotion", category: "Body Care", price: "₹3,200", image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=500&fit=crop" },
-              { name: "Hair Elixir", category: "Hair Care", price: "₹4,800", image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=500&fit=crop" }
+              { name: "Signature Perfume", category: "Fragrance", price: "₹8,500", image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=500&fit=crop", path: "/beauty/fragrance" },
+              { name: "Radiance Serum", category: "Skincare", price: "₹4,200", image: "https://www.dotandkey.com/cdn/shop/files/1_e8b0f15f-f194-4d5c-b733-3ea1c099b04d.jpg?v=1744620473&width=700", path: "/beauty/skincare" },
+              { name: "Luxury Lipstick", category: "Makeup", price: "₹2,800", image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=500&fit=crop", path: "/beauty/makeup" },
+              { name: "Hydrating Mist", category: "Skincare", price: "₹3,500", image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=500&fit=crop", path: "/beauty/skincare" },
+              { name: "Night Cream", category: "Skincare", price: "₹5,200", image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&h=500&fit=crop", path: "/beauty/skincare" },
+              { name: "Rose Gold Palette", category: "Makeup", price: "₹6,800", image: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&h=500&fit=crop", path: "/beauty/makeup" },
+              { name: "Body Lotion", category: "Body Care", price: "₹3,200", image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=500&fit=crop", path: "/beauty/skincare" },
+              { name: "Hair Elixir", category: "Hair Care", price: "₹4,800", image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=500&fit=crop", path: "/beauty/haircare" }
             ].map((product, idx) => (
               <motion.div
                 key={idx}
@@ -250,7 +249,10 @@ const navigate = useNavigate();
                     whileHover={{ opacity: 1, y: 0 }}
                     className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"
                   >
-                    <button className="w-full py-3 bg-white text-black text-sm uppercase tracking-wider font-medium hover:bg-gray-100 transition-colors">
+                    <button 
+                      onClick={() => navigate(product.path)}
+                      className="w-full py-3 bg-white text-black text-sm uppercase tracking-wider font-medium hover:bg-gray-100 transition-colors"
+                    >
                       Quick View
                     </button>
                   </motion.div>
@@ -274,6 +276,7 @@ const navigate = useNavigate();
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/beauty')}
               className="px-16 py-5 bg-black text-white text-sm font-medium uppercase tracking-widest hover:bg-gray-900 transition-all duration-300"
             >
               View All Products

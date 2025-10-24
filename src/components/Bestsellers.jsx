@@ -1,36 +1,45 @@
-// eslint-disable-next-line no-unused-vars
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaHeart, FaShoppingCart } from 'react-icons/fa';
+import ProductModal from './ProductModal';
+import WishlistButton from './WishlistButton';
+import CartButton from './CartButton';
 
 const Bestsellers = () => {
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const products = [
     {
       id: 1,
       name: 'Designer Floral Dress',
-      price: 129.99,
+      price: 4999,
       image: '/products/dress1.jpg',
-      category: 'Women'
+      category: 'dresses',
+      rating: 4.8
     },
     {
       id: 2,
       name: 'Classic Macrocannage Jacket',
-      price: 199.99,
+      price: 6999,
       image: '/products/jacket1.jpg',
-      category: 'Women'
+      category: 'outerwear',
+      rating: 4.9
     },
     {
       id: 3,
       name: 'Dior Oblique Short-Sleeved Shirt',
-      price: 89.99,
+      price: 2999,
       image: '/products/summer1.jpg',
-      category: 'Men'
+      category: 'tops',
+      rating: 4.6
     },
     {
       id: 4,
       name: 'Premium Black Coat',
-      price: 79.99,
+      price: 7999,
       image: '/products/coat1.jpg',
-      category: 'Men'
+      category: 'outerwear',
+      rating: 4.7
     }
   ];
 
@@ -47,7 +56,11 @@ const Bestsellers = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white rounded-lg shadow-md overflow-hidden group"
+              className="bg-white rounded-lg shadow-md overflow-hidden group cursor-pointer"
+              onClick={() => {
+                setSelectedProduct(product);
+                setIsModalOpen(true);
+              }}
             >
               <div className="relative">
                 <img
@@ -56,23 +69,25 @@ const Bestsellers = () => {
                   className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute top-4 right-4 space-y-2">
-                  <button className="p-2 bg-white/90 rounded-full shadow-lg hover:bg-white transition-colors">
-                    <FaHeart className="text-gray-600 hover:text-rose-500" />
-                  </button>
-                  <button className="p-2 bg-white/90 rounded-full shadow-lg hover:bg-white transition-colors">
-                    <FaShoppingCart className="text-gray-600 hover:text-rose-500" />
-                  </button>
+                  <WishlistButton product={product} />
+                  <CartButton product={product} />
                 </div>
               </div>
               <div className="p-4">
                 <h3 className="font-medium text-lg mb-2">{product.name}</h3>
                 <p className="text-gray-600 mb-2">{product.category}</p>
-                <p className="text-rose-500 font-bold">${product.price}</p>
+                <p className="text-rose-500 font-bold">₹{product.price}</p>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
+      <ProductModal 
+        product={selectedProduct} 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        type="fashion"
+      />
     </section>
   );
 };
