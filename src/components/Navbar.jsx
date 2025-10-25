@@ -1,9 +1,10 @@
-/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaHeart, FaShoppingCart, FaUser, FaSearch, FaBars, FaTimes } from 'react-icons/fa';
+import { FaHeart, FaShoppingCart, FaUser, FaSearch } from 'react-icons/fa';
+import { useCart } from '../context/CartContext';
 
 const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
+  const { getCartCount } = useCart();
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const navigate = useNavigate();
@@ -63,8 +64,13 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
               <Link to="/wishlist" className="text-xl sm:text-2xl text-gray-700 hover:text-rose-500 transition-colors">
                 <FaHeart />
               </Link>
-              <Link to="/cart" className="text-xl sm:text-2xl text-gray-700 hover:text-rose-500 transition-colors">
+              <Link to="/cart" className="relative text-2xl text-gray-700 hover:text-rose-500 transition-colors">
                 <FaShoppingCart />
+                {getCartCount() > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-rose-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                    {getCartCount()}
+                  </span>
+                )}
               </Link>
               <div className="relative">
                 <button

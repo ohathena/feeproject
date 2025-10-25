@@ -1,38 +1,45 @@
-// eslint-disable-next-line no-unused-vars
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaStar, FaHeart, FaShoppingCart } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import { FaStar } from 'react-icons/fa';
+import ProductModal from './ProductModal';
+import WishlistButton from './WishlistButton';
+import CartButton from './CartButton';
 
 const Beauty = () => {
+  const navigate = useNavigate();
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const categories = [
-    { name: 'Skincare', image: '/beauty/skincare.jpg' },
-    { name: 'Makeup', image: '/beauty/makeup.jpg' },
-    { name: 'Haircare', image: '/beauty/haircare.jpg' },
-    { name: 'Fragrances', image: '/beauty/fragrance.jpg' }
+    { name: 'Skincare', image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=500&fit=crop', path: '/beauty/skincare' },
+    { name: 'Makeup', image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&h=500&fit=crop', path: '/beauty/makeup' },
+    { name: 'Haircare', image: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=500&fit=crop', path: '/beauty/haircare' },
+    { name: 'Fragrances', image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=500&fit=crop', path: '/beauty/fragrance' }
   ];
 
   const featuredProducts = [
     {
       id: 1,
       name: 'Luxury Face Serum',
-      price: 79.99,
+      price: 2499,
       rating: 4.8,
-      image: '/beauty/products/serum.jpg',
+      image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=500&fit=crop',
       category: 'Skincare'
     },
     {
       id: 2,
       name: 'Matte Lipstick Set',
-      price: 45.99,
+      price: 1499,
       rating: 4.9,
-      image: '/beauty/products/lipstick.jpg',
+      image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=500&fit=crop',
       category: 'Makeup'
     },
     {
       id: 3,
       name: 'Hair Treatment Oil',
-      price: 34.99,
+      price: 1799,
       rating: 4.7,
-      image: '/beauty/products/hair-oil.jpg',
+      image: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=500&fit=crop',
       category: 'Haircare'
     }
   ];
@@ -41,17 +48,20 @@ const Beauty = () => {
     {
       title: 'Morning Skincare Routine',
       description: 'Start your day with these essential steps',
-      image: '/beauty/tips/morning-routine.jpg'
+      image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=500&fit=crop',
+      path: '/beauty/tips/skincare-routine'
     },
     {
       title: 'Perfect Makeup Base',
       description: 'Create a flawless foundation',
-      image: '/beauty/tips/makeup-base.jpg'
+      image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&h=500&fit=crop',
+      path: '/beauty/tips/makeup-base'
     },
     {
       title: 'Natural Hair Care',
       description: 'Tips for healthy, shiny hair',
-      image: '/beauty/tips/hair-care.jpg'
+      image: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=500&fit=crop',
+      path: '/beauty/tips/hair-care'
     }
   ];
 
@@ -59,31 +69,31 @@ const Beauty = () => {
     {
       id: 1,
       name: 'Vitamin C Serum',
-      price: 59.99,
-      originalPrice: 79.99,
+      price: 2499,
+      originalPrice: 3499,
       rating: 4.9,
       sales: 1500,
-      image: '/beauty/products/vitamin-c.jpg',
+      image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=500&fit=crop',
       tag: 'Best Seller'
     },
     {
       id: 2,
       name: 'Hydrating Face Cream',
-      price: 49.99,
-      originalPrice: 69.99,
+      price: 2199,
+      originalPrice: 2999,
       rating: 4.8,
       sales: 1200,
-      image: '/beauty/products/face-cream.jpg',
+      image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=500&fit=crop',
       tag: 'Popular'
     },
     {
       id: 3,
       name: 'Rose Gold Brush Set',
-      price: 89.99,
-      originalPrice: 129.99,
+      price: 2499,
+      originalPrice: 3999,
       rating: 4.7,
       sales: 800,
-      image: '/beauty/products/brush-set.jpg',
+      image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&h=500&fit=crop',
       tag: 'Limited Edition'
     }
   ];
@@ -93,15 +103,17 @@ const Beauty = () => {
       title: 'Summer Beauty Box',
       discount: '40% OFF',
       description: 'Get your glow on with our summer essentials',
-      image: '/beauty/offers/summer-box.jpg',
-      endDate: '2024-08-31'
+      image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&h=600&fit=crop',
+      endDate: '2024-08-31',
+      path: '/beauty/makeup'
     },
     {
       title: 'Luxury Skincare Set',
       discount: '30% OFF',
       description: 'Premium skincare collection',
-      image: '/beauty/offers/skincare-set.jpg',
-      endDate: '2024-08-25'
+      image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=800&h=600&fit=crop',
+      endDate: '2024-08-25',
+      path: '/beauty/skincare'
     }
   ];
 
@@ -131,7 +143,7 @@ const Beauty = () => {
         variants={itemVariants}
       >
         <img 
-          src="/beauty/hero.jpg" 
+          src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1600&h=900&fit=crop" 
           alt="Beauty Hero"
           className="w-full h-full object-cover"
         />
@@ -169,6 +181,7 @@ const Beauty = () => {
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               className="group cursor-pointer"
+              onClick={() => navigate(category.path)}
             >
               <div className="relative overflow-hidden rounded-lg shadow-lg">
                 <img 
@@ -195,7 +208,8 @@ const Beauty = () => {
                 key={product.id}
                 variants={itemVariants}
                 whileHover={{ y: -10 }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden group"
+                className="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer"
+                onClick={() => { setSelectedProduct(product); setIsModalOpen(true); }}
               >
                 <div className="relative">
                   <img
@@ -204,12 +218,8 @@ const Beauty = () => {
                     className="w-full h-80 object-cover"
                   />
                   <div className="absolute top-4 right-4 space-y-2">
-                    <button className="p-2 bg-white/90 rounded-full shadow-lg hover:bg-white transition-colors">
-                      <FaHeart className="text-gray-600 hover:text-rose-500" />
-                    </button>
-                    <button className="p-2 bg-white/90 rounded-full shadow-lg hover:bg-white transition-colors">
-                      <FaShoppingCart className="text-gray-600 hover:text-rose-500" />
-                    </button>
+                    <WishlistButton product={product} />
+                    <CartButton product={product} />
                   </div>
                 </div>
                 <div className="p-6">
@@ -222,7 +232,7 @@ const Beauty = () => {
                   </div>
                   <p className="text-gray-600 mb-4">{product.category}</p>
                   <div className="flex justify-between items-center">
-                    <span className="text-2xl font-bold text-rose-500">${product.price}</span>
+                    <span className="text-2xl font-bold text-rose-500">₹{product.price}</span>
                     <button className="px-4 py-2 bg-rose-500 text-white rounded-full hover:bg-rose-600 transition-colors">
                       Add to Cart
                     </button>
@@ -252,7 +262,8 @@ const Beauty = () => {
                 key={product.id}
                 variants={itemVariants}
                 whileHover={{ y: -10 }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden group"
+                className="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer"
+                onClick={() => { setSelectedProduct(product); setIsModalOpen(true); }}
               >
                 <div className="relative">
                   <img
@@ -261,12 +272,8 @@ const Beauty = () => {
                     className="w-full h-80 object-cover"
                   />
                   <div className="absolute top-4 right-4 space-y-2">
-                    <button className="p-2 bg-white/90 rounded-full shadow-lg hover:bg-white transition-colors">
-                      <FaHeart className="text-gray-600 hover:text-rose-500" />
-                    </button>
-                    <button className="p-2 bg-white/90 rounded-full shadow-lg hover:bg-white transition-colors">
-                      <FaShoppingCart className="text-gray-600 hover:text-rose-500" />
-                    </button>
+                    <WishlistButton product={product} />
+                    <CartButton product={product} />
                   </div>
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 bg-rose-500 text-white text-sm font-medium rounded-full">
@@ -285,8 +292,8 @@ const Beauty = () => {
                   <p className="text-gray-600 mb-4">{product.sales.toLocaleString()} sold</p>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <span className="text-2xl font-bold text-rose-500">${product.price}</span>
-                      <span className="text-gray-400 line-through">${product.originalPrice}</span>
+                      <span className="text-2xl font-bold text-rose-500">₹{product.price}</span>
+                      <span className="text-gray-400 line-through">₹{product.originalPrice}</span>
                     </div>
                     <button className="px-4 py-2 bg-rose-500 text-white rounded-full hover:bg-rose-600 transition-colors">
                       Add to Cart
@@ -310,6 +317,7 @@ const Beauty = () => {
                 variants={itemVariants}
                 whileHover={{ y: -10 }}
                 className="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer"
+                onClick={() => navigate(offer.path)}
               >
                 <img 
                   src={offer.image} 
@@ -326,6 +334,7 @@ const Beauty = () => {
                         <motion.button
                           whileHover={{ scale: 1.05 }}
                           className="px-6 py-2 bg-rose-500 text-white rounded-full hover:bg-rose-600"
+                          onClick={(e) => { e.stopPropagation(); navigate(offer.path); }}
                         >
                           Shop Now
                         </motion.button>
@@ -360,6 +369,7 @@ const Beauty = () => {
           </div>
           <motion.button
             whileHover={{ scale: 1.05 }}
+            onClick={() => navigate('/beauty/makeup')}
             className="px-8 py-3 bg-white text-rose-500 rounded-full font-medium hover:bg-gray-100"
           >
             Shop Now
@@ -396,6 +406,7 @@ const Beauty = () => {
                 variants={itemVariants}
                 whileHover={{ y: -10 }}
                 className="group cursor-pointer"
+                onClick={() => navigate(tip.path)}
               >
                 <div className="relative rounded-xl overflow-hidden shadow-lg">
                   <img 
@@ -419,6 +430,7 @@ const Beauty = () => {
           </div>
         </div>
       </section>
+      <ProductModal product={selectedProduct} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} type="beauty" />
     </motion.div>
   );
 };
