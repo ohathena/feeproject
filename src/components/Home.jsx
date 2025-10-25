@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import { useState, useRef, useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
@@ -264,73 +266,72 @@ const Home = () => {
       </p>
     </motion.div>
 
-          <div className="grid grid-cols-4 gap-8">
-            {[
-              { name: "Signature Perfume", category: "Fragrance", price: "₹8,500", image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=500&fit=crop", path: "/beauty/fragrance" },
-              { name: "Radiance Serum", category: "Skincare", price: "₹4,200", image: "https://www.dotandkey.com/cdn/shop/files/1_e8b0f15f-f194-4d5c-b733-3ea1c099b04d.jpg?v=1744620473&width=700", path: "/beauty/skincare" },
-              { name: "Luxury Lipstick", category: "Makeup", price: "₹2,800", image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=500&fit=crop", path: "/beauty/makeup" },
-              { name: "Hydrating Mist", category: "Skincare", price: "₹3,500", image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=500&fit=crop", path: "/beauty/skincare" },
-              { name: "Night Cream", category: "Skincare", price: "₹5,200", image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&h=500&fit=crop", path: "/beauty/skincare" },
-              { name: "Rose Gold Palette", category: "Makeup", price: "₹6,800", image: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&h=500&fit=crop", path: "/beauty/makeup" },
-              { name: "Body Lotion", category: "Body Care", price: "₹3,200", image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=500&fit=crop", path: "/beauty/skincare" },
-              { name: "Hair Elixir", category: "Hair Care", price: "₹4,800", image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=500&fit=crop", path: "/beauty/haircare" }
-            ].map((product, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1, duration: 0.6 }}
-                whileHover={{ y: -12, scale: 1.03 }}
-                className="group cursor-pointer"
-              >
-                <div className="relative overflow-hidden mb-6 bg-gray-100">
-                  <motion.img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-500" />
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileHover={{ opacity: 1, y: 0 }}
-                    className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"
-                  >
-                    <button 
-                      onClick={() => navigate(product.path)}
-                      className="w-full py-3 bg-white text-black text-sm uppercase tracking-wider font-medium hover:bg-gray-100 transition-colors"
-                    >
-                      Quick View
-                    </button>
-                  </motion.div>
-                </div>
-                <div className="text-center">
-                  <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">{product.category}</p>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{product.name}</h3>
-                  <p className="text-gray-700 font-medium">{product.price}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
-            className="text-center mt-16"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/beauty')}
-              className="px-16 py-5 bg-black text-white text-sm font-medium uppercase tracking-widest hover:bg-gray-900 transition-all duration-300"
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-6 lg:gap-8">
+      {[
+        { name: "Signature Perfume", category: "Fragrance", price: "₹8,500", image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=500&fit=crop", path: "/beauty/fragrance" },
+        { name: "Radiance Serum", category: "Skincare", price: "₹4,200", image: "https://www.dotandkey.com/cdn/shop/files/1_e8b0f15f-f194-4d5c-b733-3ea1c099b04d.jpg?v=1744620473&width=700", path: "/beauty/skincare" },
+        { name: "Luxury Lipstick", category: "Makeup", price: "₹2,800", image: "https://www.rasluxuryoils.com/cdn/shop/files/ChampaigneBlush_c2484f01-b702-4092-97e8-c24419530452.jpg?v=1710490244&width=600", path: "/beauty/makeup" },
+        { name: "Hydrating Mist", category: "Skincare", price: "₹3,500", image: "https://aflairza.com/cdn/shop/files/Hydratante1st2.jpg?v=1749987561&width=1024", path: "/beauty/skincare" },
+        { name: "Night Cream", category: "Skincare", price: "₹5,200", image: "https://mitchellmalaysia.com/cdn/shop/files/MitchellUsa_AgeLess_NightTherapy_Cream-01_1.webp?v=1729493846&width=713", path: "/beauty/skincare" },
+        { name: "Rose Gold Palette", category: "Makeup", price: "₹6,800", image: "https://i.pinimg.com/736x/1c/20/bc/1c20bc566b235fb4dd6d2735a17a7b96.jpg", path: "/beauty/makeup" },
+        { name: "Body Lotion", category: "Body Care", price: "₹3,200", image: "https://lovebeautyandplanet.in/cdn/shop/files/Cherry_blossom_body_lotion.jpg?v=1757130547&width=713", path: "/beauty/skincare" },
+        { name: "Hair Elixir", category: "Hair Care", price: "₹4,800", image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=500&fit=crop", path: "/beauty/haircare" }  ].map((product, idx) => (
+        <motion.div
+          key={idx}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: idx * 0.1, duration: 0.6 }}
+          whileHover={{ y: -12, scale: 1.03 }}
+          className="group cursor-pointer"
+        >
+          <div className="relative overflow-hidden mb-4 sm:mb-6 bg-gray-100">
+            <motion.img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-64 sm:h-72 lg:h-80 object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-500" />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileHover={{ opacity: 1, y: 0 }}
+              className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"
             >
-              View All Products
-            </motion.button>
-          </motion.div>
-        </div>
-      </section>
+              <button 
+                onClick={() => navigate(product.path)}
+                className="w-full py-2 sm:py-3 bg-white text-black text-xs sm:text-sm uppercase tracking-wider font-medium hover:bg-gray-100 transition-colors"
+              >
+                Quick View
+              </button>
+            </motion.div>
+          </div>
+          <div className="text-center px-2">
+            <p className="text-xs text-gray-500 uppercase tracking-wider mb-1 sm:mb-2">{product.category}</p>
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1 sm:mb-2">{product.name}</h3>
+            <p className="text-sm sm:text-base text-gray-700 font-medium">{product.price}</p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: 0.5 }}
+      className="text-center mt-12 sm:mt-14 lg:mt-16"
+    >
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={() => navigate('/beauty')}
+        className="px-10 sm:px-12 lg:px-16 py-4 sm:py-4 lg:py-5 bg-black text-white text-xs sm:text-sm font-medium uppercase tracking-widest hover:bg-gray-900 transition-all duration-300"
+      >
+        View All Products
+      </motion.button>
+    </motion.div>
+  </div>
+</section>
 
       {/* Full Screen Indian Heritage Section */}
       <section className="flex items-center justify-center bg-black relative overflow-hidden min-h-screen">
