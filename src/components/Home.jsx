@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 const Home = () => {
+  // Base path for GitHub Pages
+  const basePath = import.meta.env.BASE_URL || '/';
 
   const [hoveredSection, setHoveredSection] = useState(null);
   const [activeCollection, setActiveCollection] = useState(0);
@@ -128,7 +130,7 @@ const Home = () => {
         playsInline
         loop
       >
-        <source src="/fashion.mp4" type="video/mp4" />
+        <source src={`${basePath}fashion.mp4`} type="video/mp4" />
       </video>
       <div className="absolute inset-0 flex flex-col items-start justify-end p-6 sm:p-10 lg:p-16 transition-all duration-500 z-20">
         <div className="max-w-md transform transition-all duration-500 group-hover:translate-y-[-8px]">
@@ -170,7 +172,7 @@ const Home = () => {
         playsInline
         loop
       >
-        <source src="/beauty.mp4" type="video/mp4" />
+        <source src={`${basePath}beauty.mp4`} type="video/mp4" />
       </video>
       <div className="absolute inset-0 flex flex-col items-start justify-end p-6 sm:p-10 lg:p-16 transition-all duration-500 z-20">
         <div className="max-w-md transform transition-all duration-500 group-hover:translate-y-[-8px]">

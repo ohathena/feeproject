@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import ProductModal from './ProductModal';
@@ -8,12 +9,15 @@ const Bestsellers = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // Base path for GitHub Pages
+  const basePath = import.meta.env.BASE_URL || '/';
+
   const products = [
     {
       id: 1,
       name: 'Designer Floral Dress',
       price: 4999,
-      image: '/products/dress1.jpg',
+      image: `${basePath}products/dress1.jpg`,
       category: 'dresses',
       rating: 4.8
     },
@@ -21,7 +25,7 @@ const Bestsellers = () => {
       id: 2,
       name: 'Classic Macrocannage Jacket',
       price: 6999,
-      image: '/products/jacket1.jpg',
+      image: `${basePath}products/jacket1.jpg`,
       category: 'outerwear',
       rating: 4.9
     },
@@ -29,7 +33,7 @@ const Bestsellers = () => {
       id: 3,
       name: 'Dior Oblique Short-Sleeved Shirt',
       price: 2999,
-      image: '/products/summer1.jpg',
+      image: `${basePath}products/summer1.jpg`,
       category: 'tops',
       rating: 4.6
     },
@@ -37,7 +41,7 @@ const Bestsellers = () => {
       id: 4,
       name: 'Premium Black Coat',
       price: 7999,
-      image: '/products/coat1.jpg',
+      image: `${basePath}products/coat1.jpg`,
       category: 'outerwear',
       rating: 4.7
     }

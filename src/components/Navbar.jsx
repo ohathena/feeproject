@@ -5,6 +5,8 @@ import { FaHeart, FaShoppingCart, FaUser, FaSearch, FaBars, FaTimes } from 'reac
 import { useCart } from '../context/CartContext';
 
 const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
+  // Base path for GitHub Pages - change this to match your repo name
+  const basePath = import.meta.env.BASE_URL || '/';
   const { getCartCount } = useCart();
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -45,7 +47,7 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
 
             {/* Logo */}
             <Link to="/" className="flex items-center">
-              <img src="/logo.png" alt="Glamora Logo" className="h-12 sm:h-16 lg:h-20 w-auto" />
+              <img src={`${basePath}logo.png`} alt="Glamora Logo" className="h-12 sm:h-16 lg:h-20 w-auto" />
             </Link>
 
             {/* Search Bar (Desktop) */}
@@ -145,7 +147,7 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
 
           {/* Logo in Mobile Menu */}
           <div className="mb-8 mt-2">
-            <img src="/logo.png" alt="Glamora Logo" className="h-16 w-auto" />
+            <img src={`${basePath}logo.png`} alt="Glamora Logo" className="h-16 w-auto" />
           </div>
 
           {/* Search Bar (Mobile) */}

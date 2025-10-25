@@ -6,16 +6,19 @@ import Bestsellers from './Bestsellers';
 const Fashion = () => {
   const navigate = useNavigate();
   
+  // Base path for GitHub Pages - change this to match your repo name
+  const basePath = import.meta.env.BASE_URL || '/';
+  
   const categories = [
-    { name: 'Women', image: '/fashion/women.jpg' },
-    { name: 'Men', image: '/fashion/men.jpg' },
-    { name: 'Kids', image: '/fashion/kids.jpg' }
+    { name: 'Women', image: `${basePath}fashion/women.jpg` },
+    { name: 'Men', image: `${basePath}fashion/men.jpg` },
+    { name: 'Kids', image: `${basePath}fashion/kids.jpg` }
   ];
 
   const collections = [
-    { name: 'Summer Collection', image: '/fashion/summer.jpg', discount: '30% OFF', path: '/fashion/summer' },
-    { name: 'Winter Essentials', image: '/fashion/winter.jpg', discount: '20% OFF', path: '/fashion/winter' },
-    { name: 'Accessories', image: '/fashion/accessories.jpg', tag: 'NEW IN', path: '/fashion/accessories' }
+    { name: 'Summer Collection', image: `${basePath}fashion/summer.jpg`, discount: '30% OFF', path: '/fashion/summer' },
+    { name: 'Winter Essentials', image: `${basePath}fashion/winter.jpg`, discount: '20% OFF', path: '/fashion/winter' },
+    { name: 'Accessories', image: `${basePath}fashion/accessories.jpg`, tag: 'NEW IN', path: '/fashion/accessories' }
   ];
 
   return (
@@ -23,7 +26,7 @@ const Fashion = () => {
       {/* Hero Section */}
       <div className="relative h-[85vh] overflow-hidden">
         <img 
-          src="/fashion/hero-fashion.jpg" 
+          src={`${basePath}fashion/hero-fashion.jpg`}
           alt="Fashion Collection"
           className="w-full h-full object-cover"
         />

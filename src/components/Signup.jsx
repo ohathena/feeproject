@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Signup = () => {
+   const basePath = import.meta.env.BASE_URL || '/';
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,12 +26,13 @@ const Signup = () => {
   return (
      <div
       className="flex justify-center items-center min-h-screen bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/login.jpg')" }}
+      style={{ backgroundImage: `url(${basePath}login.jpg)` }}
+
     >
     <div className="w-full max-w-md mx-auto mt-10 p-6 bg-white rounded-xl shadow-md">
       <div className="flex justify-center mb-4">
     <img
-      src="/logo.png" 
+      src={`${basePath}logo.png`} 
       alt="Login Illustration"
       className="w-45 h-24 object-contain"
     />

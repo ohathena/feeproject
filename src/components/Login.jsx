@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = ({ setIsAuthenticated }) => {
+  const basePath = import.meta.env.BASE_URL || '/';
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -22,12 +23,13 @@ const Login = ({ setIsAuthenticated }) => {
   return (
     <div
       className="flex justify-center items-center min-h-screen bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/login.jpg')" }}
+     style={{ backgroundImage: `url(${basePath}login.jpg)` }}
+
     >
       <div className="w-full max-w-md bg-white backdrop-blur-md p-8 rounded-2xl shadow-lg">
         <div className="flex justify-center mb-4">
     <img
-      src="/logo.png" 
+      src={`${basePath}logo.png`}
       alt="Login Illustration"
       className="w-45 h-24 object-contain"
     />
