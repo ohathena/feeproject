@@ -18,9 +18,9 @@ const Men = () => {
     { id: 3, name: 'Casual Jacket', price: 3999, category: 'casual', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRY6C5VxdKWfUL2jBAQw3cZNkE6QmcFdeM40bz5LZ8s_yjDtJEOFNz4l3t3W8sPaByqBkLyCPQ-b-aFRDKG2jUdPuNhGU6kvM-oZni76X0CD22DCcKhfO_p', rating: 4.5 },
     { id: 4, name: 'Summer Shirt', price: 1799, category: 'casual', image: 'https://assets.myntassets.com/dpr_1.5,q_30,w_400,c_limit,fl_progressive/assets/images/2025/AUGUST/29/IU8K3F10_48c6e54451ec49c492539828f2e5c271.jpg', rating: 4.3 },
     { id: 5, name: 'Premium Suit Jacket', price: 8999, category: 'formal', image: 'https://dtcralphlauren.scene7.com/is/image/PoloGSI/s7-1486724_alternate10?$rl_4x5_pdp$', rating: 4.9 },
-    { id: 6, name: 'Trench Coat', price: 7499, category: 'outerwear', image: '/products/coat1.jpg', rating: 4.6 },
-    { id: 7, name: 'Denim Jacket', price: 2999, category: 'casual', image: '/products/jacket1.jpg', rating: 4.4 },
-    { id: 8, name: 'Linen Shirt', price: 1499, category: 'casual', image: '/products/summer1.jpg', rating: 4.2 },
+    { id: 6, name: 'Trench Coat', price: 7499, category: 'outerwear', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQmIH75k7g9ouL_hldVqTFuujMtuK8-QuyX91SH0c2Hd4O84rqLIhVCnrPpbecgj0y_znzurZJ-PoPmjIcWpiRwHnANZd7VKwxEVI2-cpMY', rating: 4.6 },
+    { id: 7, name: 'Denim Jacket', price: 2999, category: 'casual', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRPcgV3yZElIlSew9-3tZT35EkdkOvV1twI5PluU5NLVGPCduZP4n_bB5SJipgYiP6id7yo_w6FX0RRlB81FCQGD6ZIWWU0QK9LRDBqVAQqv2CCKnZZQh_kAw&usqp=CAc', rating: 4.4 },
+    { id: 8, name: 'Linen Shirt', price: 1499, category: 'casual', image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRQk7Y_YsZKyIs9j3c62FFekbI8hRSqmi-Ervzu_XT4_JrArQ3P5g3I_9xm0vUIHxxK4a8YeD8P6e_nWjpijqkhNoPJtcl4iM-poJ5Nj3b8xjs9nXPgf9lX6O_7nUaROiMmKzgjyTKPuQ&usqp=CAc', rating: 4.2 },
   ];
 
   const filteredProducts = products.filter(p => 
