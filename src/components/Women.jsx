@@ -19,7 +19,7 @@ const Women = () => {
     { id: 4, name: 'Summer Collection Top', price: 1499, category: 'tops', image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQJ8iY3hMYRfOY8BwggkyVdQ0obmCK51BwtFxMpCWOl3-ilGklpcuWL-OLl_ukFMGGgkF0dd8NIsrZHC-ZZah8Ta0di9v8mJuBQvWPELmvq7hmEcl9nFix2Utk5UNkWBT2CtJ3_as7sxA&usqp=CAc', rating: 4.3 },
     { id: 5, name: 'Designer Dress', price: 5999, category: 'dresses', image: 'https://www.frontierraas.com/pub/media/resized/800/fr12123512_2_.webp', rating: 4.9 },
     { id: 6, name: 'Casual Jacket', price: 2999, category: 'outerwear', image: 'https://assets.myntassets.com/dpr_1.5,q_30,w_400,c_limit,fl_progressive/assets/images/2025/SEPTEMBER/4/3iF8UlsE_36422d159a9447899e19bbcac64ff08b.jpg', rating: 4.4 },
-    { id: 7, name: 'Premium Coat', price: 7999, category: 'outerwear', image: '/products/coat1.jpg', rating: 4.7 },
+    { id: 7, name: 'Premium Coat', price: 7999, category: 'outerwear', image: 'https://assets.myntassets.com/dpr_1.5,q_30,w_400,c_limit,fl_progressive/assets/images/2025/SEPTEMBER/4/3iF8UlsE_36422d159a9447899e19bbcac64ff08b.jpg', rating: 4.7 },
     { id: 8, name: 'Trendy Summer Wear', price: 1999, category: 'tops', image: '/products/summer1.jpg', rating: 4.2 },
   ];
 
