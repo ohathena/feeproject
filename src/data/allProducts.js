@@ -8,12 +8,12 @@ export const allProducts = [
   { id: 4, name: 'Summer Collection Top', price: 1499, category: 'tops', mainCategory: 'fashion', subCategory: 'women', image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSOorTle5KUNOJrnJEIxy2hr4ArrMyyWE2uXB_7NPOhQiGA62_epqaev62t7JnJbZWG5O_fsb9zP1BNpGJ263U2dg5ZHmhFCqp5gL4Ey28p', rating: 4.3 },
   { id: 5, name: 'Designer Dress', price: 5999, category: 'dresses', mainCategory: 'fashion', subCategory: 'women', image: 'https://images.meesho.com/images/products/321087720/3conk_512.avif?width=512', rating: 4.9 },
   { id: 6, name: 'Casual Jacket', price: 2999, category: 'outerwear', mainCategory: 'fashion', subCategory: 'women', image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTJfGVgAB5hgkb-IgwDkqhnKz16sIt9V7NunuWGQeuIH7CyQQgHRee4ViNXmbI7VFwplLws2ZwfaltTi9r-O2F5XudIkpgWSDyCamp5sRLa', rating: 4.4 },
-  { id: 7, name: 'Premium Coat', price: 7999, category: 'outerwear', mainCategory: 'fashion', subCategory: 'women', image: '/products/coat1.jpg', rating: 4.7 },
-  { id: 8, name: 'Trendy Summer Wear', price: 1999, category: 'tops', mainCategory: 'fashion', subCategory: 'women', image: '/products/summer1.jpg', rating: 4.2 },
+  { id: 7, name: 'Premium Coat', price: 7999, category: 'outerwear', mainCategory: 'fashion', subCategory: 'women', image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcReWCxXAtte_BGU1kILCz5IP8xXe_0elcPinCYRGdP4d6yhoInqya9clZ929orYTCx8A3mTMZvXnSxdM7pUFqb2SWUsGWkdFvUwWAvLXbk74QJjklzU1ldo', rating: 4.7 },
+  { id: 8, name: 'Trendy Summer Wear', price: 1999, category: 'tops', mainCategory: 'fashion', subCategory: 'women', image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTFXXuqlbounS1IxhLS8tUerQXKYfYVlNGYL2ulgd4SVq22MYdavmKe3IJ76V8rtc0lD8IyWxMndcaBL_PAYr0JNsiL1R5F6LByp8t2a7R_qDkrzUtgaERT0A', rating: 4.2 },
 
   // Men's Fashion
-  { id: 101, name: 'Classic Blazer', price: 5499, category: 'formal', mainCategory: 'fashion', subCategory: 'men', image: '/products/jacket1.jpg', rating: 4.7 },
-  { id: 102, name: 'Winter Overcoat', price: 6999, category: 'outerwear', mainCategory: 'fashion', subCategory: 'men', image: '/products/coat1.jpg', rating: 4.8 },
+  { id: 101, name: 'Classic Blazer', price: 5499, category: 'formal', mainCategory: 'fashion', subCategory: 'men', image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSxXgMsOEFQvVzNxXWx4N553Ck1S0jOZlfDQ46IvJ_EXtE8pmom2gTmciaAI87gICYy5th_LBIB31-Ta_foLKVup1GHBPsNRHxVoq9DX0k', rating: 4.7 },
+  { id: 102, name: 'Winter Overcoat', price: 6999, category: 'outerwear', mainCategory: 'fashion', subCategory: 'men', image: 'https://static.zara.net/assets/public/a9ba/3862/e3be46918c4f/32447a0ef20a/05070100706-p/05070100706-p.jpg?ts=1757061834920&w=1024', rating: 4.8 },
   { id: 103, name: 'Casual Jacket', price: 3999, category: 'casual', mainCategory: 'fashion', subCategory: 'men', image: '/products/jacket1.jpg', rating: 4.5 },
   { id: 104, name: 'Summer Shirt', price: 1799, category: 'casual', mainCategory: 'fashion', subCategory: 'men', image: '/products/summer1.jpg', rating: 4.3 },
   { id: 105, name: 'Premium Suit Jacket', price: 8999, category: 'formal', mainCategory: 'fashion', subCategory: 'men', image: '/products/jacket1.jpg', rating: 4.9 },
