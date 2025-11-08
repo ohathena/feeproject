@@ -2,8 +2,8 @@
 
 export const allProducts = [
   // Women's Fashion
-  { id: 1, name: 'Elegant Summer Dress', price: 2499, category: 'dresses', mainCategory: 'fashion', subCategory: 'women', image: '/products/dress1.jpg', rating: 4.5 },
-  { id: 2, name: 'Classic Winter Coat', price: 4999, category: 'outerwear', mainCategory: 'fashion', subCategory: 'women', image: '/products/coat1.jpg', rating: 4.8 },
+  { id: 1, name: 'Elegant Summer Dress', price: 2499, category: 'dresses', mainCategory: 'fashion', subCategory: 'women', image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRlq2_zn30DlI_KSH7sJiT8Lmdu6k7o5pgqPEJwRPnHPoYooBimlQA2NXXbii8qU52tRZOaj3zuES0mfJSBi5TBDVfQeasPe9LJ9DMuEjMB', rating: 4.5 },
+  { id: 2, name: 'Classic Winter Coat', price: 4999, category: 'outerwear', mainCategory: 'fashion', subCategory: 'women', image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRO54uq7NsSkdnz5P5atXtxfHC3WvQlsSvpExTGrzKVGf1qOJKPfGGAmGlehVuXE1AVGqLnfB1gOsnNg-k4pO0O15W9xo52BReg8gQBQsOg', rating: 4.8 },
   { id: 3, name: 'Stylish Jacket', price: 3499, category: 'outerwear', mainCategory: 'fashion', subCategory: 'women', image: '/products/jacket1.jpg', rating: 4.6 },
   { id: 4, name: 'Summer Collection Top', price: 1499, category: 'tops', mainCategory: 'fashion', subCategory: 'women', image: '/products/summer1.jpg', rating: 4.3 },
   { id: 5, name: 'Designer Dress', price: 5999, category: 'dresses', mainCategory: 'fashion', subCategory: 'women', image: '/products/dress1.jpg', rating: 4.9 },
