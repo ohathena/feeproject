@@ -14,7 +14,7 @@ const Women = () => {
 
   const products = [
     { id: 1, name: 'Elegant Summer Dress', price: 2499, category: 'dresses', image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQHbi09QgnGdGzNTqgqLhiG861HrD3EadFYnEJDX8r8yEAbY-7gyaCpDQ2lopZpgQyervimF9QMqUQ25yhPyqRCG3_j3Jj5XCXWMzYSyd8", rating: 4.5 },
-    { id: 2, name: 'Classic Winter Coat', price: 4999, category: 'outerwear', image: '/products/coat1.jpg', rating: 4.8 },
+    { id: 2, name: 'Classic Winter Coat', price: 4999, category: 'outerwear', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTdDzo4m_9fu7_9QBfGAs_P4kd37ye-eVwbLl1CzqTFH9KQ1lifpa-tpRVQhsj8rH5B06JMtFeOaL4DgRiG-S82VUgr6w3EKmqxFFa8qluvGfbmGOq-mTQw', rating: 4.8 },
     { id: 3, name: 'Stylish Jacket', price: 3499, category: 'outerwear', image: '/products/jacket1.jpg', rating: 4.6 },
     { id: 4, name: 'Summer Collection Top', price: 1499, category: 'tops', image: '/products/summer1.jpg', rating: 4.3 },
     { id: 5, name: 'Designer Dress', price: 5999, category: 'dresses', image: '/products/dress1.jpg', rating: 4.9 },
