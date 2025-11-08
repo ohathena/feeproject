@@ -13,9 +13,9 @@ const Accessories = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const products = [
-    { id: 1, name: 'Designer Handbag', price: 5999, category: 'bags', image: '/products/jacket1.jpg', rating: 4.8 },
-    { id: 2, name: 'Leather Belt', price: 1499, category: 'belts', image: '/products/summer1.jpg', rating: 4.6 },
-    { id: 3, name: 'Sunglasses', price: 2499, category: 'eyewear', image: '/products/dress1.jpg', rating: 4.7 },
+    { id: 1, name: 'Designer Handbag', price: 5999, category: 'bags', image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTCwYYwpfbmzEyV0lm58XVscb6waXtttg4wVR_X80STF5iaPONbvkE6ME7-qH90d-CYZwIBHLOOOB9GrzrXDveirFBGO6IisHSM3oL-7O3-lq3m6IJhwRjtXOGe', rating: 4.8 },
+    { id: 2, name: 'Leather Belt', price: 1499, category: 'belts', image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTHxTcAVv9q4h3XIhHyw75zQlGamxF51YcuCWOqxN_nuvWP9GBXZFCyMeei1gwahgADQdh_bbR2Hjpg1BfiuFtBf1uQUYLUQAfSfXQGwPk2', rating: 4.6 },
+    { id: 3, name: 'Sunglasses', price: 2499, category: 'eyewear', image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRkUVxkbOUltcutIWBKGRHmwz8wyoOpL9d_H0rbO-1FZ6WTSfkx4xPKmETtN79SqevzZciwa1K0OI4L6_YZXrz5y7A8a_YRUQ7UcJCjyO4yazW4j9sXnKy_', rating: 4.7 },
     { id: 4, name: 'Silk Scarf', price: 1999, category: 'scarves', image: '/products/summer1.jpg', rating: 4.5 },
     { id: 5, name: 'Watch', price: 6999, category: 'jewelry', image: '/products/coat1.jpg', rating: 4.9 },
     { id: 6, name: 'Hat', price: 1299, category: 'hats', image: '/products/jacket1.jpg', rating: 4.4 },
