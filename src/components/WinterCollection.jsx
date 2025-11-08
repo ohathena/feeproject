@@ -13,9 +13,9 @@ const WinterCollection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const products = [
-    { id: 1, name: 'Wool Winter Coat', price: 7999, category: 'outerwear', image: '/products/coat1.jpg', rating: 4.9 },
-    { id: 2, name: 'Cashmere Sweater', price: 5499, category: 'tops', image: '/products/jacket1.jpg', rating: 4.8 },
-    { id: 3, name: 'Thermal Jacket', price: 4999, category: 'outerwear', image: '/products/jacket1.jpg', rating: 4.7 },
+    { id: 1, name: 'Wool Winter Coat', price: 7999, category: 'outerwear', image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRjqbf8jCnkvukEKP-DMp8CNJ4trmhkOc6nILk7pzGEhJ7D2Rh1TYWXnUOJ-sA9tNg1iai8umwT6DoEAtCsjPpIhAbmgAm1lQbmLIP60BE', rating: 4.9 },
+    { id: 2, name: 'Cashmere Sweater', price: 5499, category: 'tops', image: '/products/coat1.jpg', rating: 4.8 },
+    { id: 3, name: 'Thermal Jacket', price: 4999, category: 'outerwear', image: '/products/coat1.jpg', rating: 4.7 },
     { id: 4, name: 'Winter Dress', price: 3999, category: 'dresses', image: '/products/dress1.jpg', rating: 4.6 },
     { id: 5, name: 'Heavy Coat', price: 8999, category: 'outerwear', image: '/products/coat1.jpg', rating: 4.8 },
     { id: 6, name: 'Knit Cardigan', price: 3499, category: 'tops', image: '/products/jacket1.jpg', rating: 4.5 },
