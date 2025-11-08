@@ -18,7 +18,7 @@ const SummerCollection = () => {
     { id: 3, name: 'Casual Summer Jacket', price: 2999, category: 'outerwear', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQiOpctZyxBMnBFkvJSqV_EMwykSk59pKEK4Yk73t3tOSAvj-vHZinuLiJGtjh-GojvVOPpXINcmLCre1TeeFmrtAHaFd5SYv9pg55JsatF', rating: 4.6 },
     { id: 4, name: 'Breezy Maxi Dress', price: 3499, category: 'dresses', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRubc2G11EREuRj7oHyHRK-g7iYaOER7GBThPG5-tvGCfI-fO_hBDtERl9NRojNttcpTXve8a8jRJljPSw3ok3Xr6KvP6fXsVtcMX63EZK-tjDYAml8Iu3v', rating: 4.8 },
     { id: 5, name: 'Linen Shorts', price: 1299, category: 'bottoms', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcT2Akrb1HJ7y9sHM_bBbhL36AWldjsjXgQD7439kYAgk25M4cRb_WqcAr0zj7msXgrdwXp8lC1cdYSWLZHNnrg7uAxijtPLq96K9NkRujY', rating: 4.4 },
-    { id: 6, name: 'Summer Tank Top', price: 999, category: 'tops', image: '/products/summer1.jpg', rating: 4.3 },
+    { id: 6, name: 'Summer Tank Top', price: 999, category: 'tops', image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQiSnqhhqvfaaB82DGcHHrhr4Zgw7uer_3ncbcdD91R5VVS-iIaEWpEgnpYo8rrAjJLr4P6PcUFHgaiRh1ydWt9-PAacGji0X9u6upRpgzqQZCvmNO8BF5Y', rating: 4.3 },
   ];
 
   const filteredProducts = products.filter(p => 
