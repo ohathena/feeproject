@@ -15,9 +15,9 @@ const WinterCollection = () => {
   const products = [
     { id: 1, name: 'Wool Winter Coat', price: 7999, category: 'outerwear', image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRjqbf8jCnkvukEKP-DMp8CNJ4trmhkOc6nILk7pzGEhJ7D2Rh1TYWXnUOJ-sA9tNg1iai8umwT6DoEAtCsjPpIhAbmgAm1lQbmLIP60BE', rating: 4.9 },
     { id: 2, name: 'Cashmere Sweater', price: 5499, category: 'tops', image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRN2wgB3QCwGa5Jp1mghtg-rZXBuDFGVCxfVRY9JCSGhU1WO2e9ZSJuSYZfDachzPY9B7oVmbH8mOKwtOD2BEuRt5KpayYY74-Hrx_BAPQydAOxNCNbwVGbdj88GLI1BEmChBoANOo&usqp=CAc', rating: 4.8 },
-    { id: 3, name: 'Thermal Jacket', price: 4999, category: 'outerwear', image: '/products/coat1.jpg', rating: 4.7 },
-    { id: 4, name: 'Winter Dress', price: 3999, category: 'dresses', image: '/products/dress1.jpg', rating: 4.6 },
-    { id: 5, name: 'Heavy Coat', price: 8999, category: 'outerwear', image: '/products/coat1.jpg', rating: 4.8 },
+    { id: 3, name: 'Thermal Jacket', price: 4999, category: 'outerwear', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQzb4hHRT0hbJ5kAdfZj-035nQ5-S7h6QT4CiBG7ov57lsjgnxRG_PiOOmBIDZ7rWyuFXvYDOGvq0AiyK_wa8QGSHYDfX0uf-FOmyndyOrsNAmxEkB6L4y0', rating: 4.7 },
+    { id: 4, name: 'Winter Dress', price: 3999, category: 'dresses', image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTpMZt61THQNGZXANf6n6QHLgZNyXpcvNiSXbqr7mADs2efPcyeya22dgeK_Le9kRVcR3zxgFm-pek7MKP3zQnAoYcHmlZ5OHs3bEuDKCk', rating: 4.6 },
+    { id: 5, name: 'Heavy Coat', price: 8999, category: 'outerwear', image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS6lWRTY7hlTWM9JgSS5RL6h3-X47aRIEj_GsROZUIfGpFB6Jka8fN6FVCBRTkh6rMD309x093LAy8p_Ogs5fG4RjblykkoZZkDS-Z5rXoU6Zjn0gH6zG-0', rating: 4.8 },
     { id: 6, name: 'Knit Cardigan', price: 3499, category: 'tops', image: '/products/jacket1.jpg', rating: 4.5 },
   ];
 
