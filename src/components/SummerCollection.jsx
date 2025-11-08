@@ -13,8 +13,8 @@ const SummerCollection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const products = [
-    { id: 1, name: 'Floral Summer Dress', price: 2499, category: 'dresses', image: '/products/dress1.jpg', rating: 4.7 },
-    { id: 2, name: 'Light Cotton Shirt', price: 1499, category: 'tops', image: '/products/summer1.jpg', rating: 4.5 },
+    { id: 1, name: 'Floral Summer Dress', price: 2499, category: 'dresses', image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRvKKS9IksaChESp3bS3hedbZvjJoD78cgwmf3nUpMpNzp4Se8rjcl_3bL4AnFPWrI5Qh_kb_QW6L7lbzpq5v120dna-rbkHHDvxSSbxfo', rating: 4.7 },
+    { id: 2, name: 'Light Cotton Shirt', price: 1499, category: 'tops', image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSEbFqCyDccQ3mDUbc44xL2mdn6eQ-HaHEVwZALNeaB_7JFGBrSEqUTHFgYy1LcGjcBryUnDinlxsbv8x73dKn9d0bD0jdug2e8Gji_JACTH7B8ym8tTPVAfA&usqp=CAc', rating: 4.5 },
     { id: 3, name: 'Casual Summer Jacket', price: 2999, category: 'outerwear', image: '/products/jacket1.jpg', rating: 4.6 },
     { id: 4, name: 'Breezy Maxi Dress', price: 3499, category: 'dresses', image: '/products/dress1.jpg', rating: 4.8 },
     { id: 5, name: 'Linen Shorts', price: 1299, category: 'bottoms', image: '/products/summer1.jpg', rating: 4.4 },
