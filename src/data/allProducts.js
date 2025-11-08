@@ -14,12 +14,12 @@ export const allProducts = [
   // Men's Fashion
   { id: 101, name: 'Classic Blazer', price: 5499, category: 'formal', mainCategory: 'fashion', subCategory: 'men', image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSxXgMsOEFQvVzNxXWx4N553Ck1S0jOZlfDQ46IvJ_EXtE8pmom2gTmciaAI87gICYy5th_LBIB31-Ta_foLKVup1GHBPsNRHxVoq9DX0k', rating: 4.7 },
   { id: 102, name: 'Winter Overcoat', price: 6999, category: 'outerwear', mainCategory: 'fashion', subCategory: 'men', image: 'https://static.zara.net/assets/public/a9ba/3862/e3be46918c4f/32447a0ef20a/05070100706-p/05070100706-p.jpg?ts=1757061834920&w=1024', rating: 4.8 },
-  { id: 103, name: 'Casual Jacket', price: 3999, category: 'casual', mainCategory: 'fashion', subCategory: 'men', image: '/products/jacket1.jpg', rating: 4.5 },
-  { id: 104, name: 'Summer Shirt', price: 1799, category: 'casual', mainCategory: 'fashion', subCategory: 'men', image: '/products/summer1.jpg', rating: 4.3 },
-  { id: 105, name: 'Premium Suit Jacket', price: 8999, category: 'formal', mainCategory: 'fashion', subCategory: 'men', image: '/products/jacket1.jpg', rating: 4.9 },
-  { id: 106, name: 'Trench Coat', price: 7499, category: 'outerwear', mainCategory: 'fashion', subCategory: 'men', image: '/products/coat1.jpg', rating: 4.6 },
-  { id: 107, name: 'Denim Jacket', price: 2999, category: 'casual', mainCategory: 'fashion', subCategory: 'men', image: '/products/jacket1.jpg', rating: 4.4 },
-  { id: 108, name: 'Linen Shirt', price: 1499, category: 'casual', mainCategory: 'fashion', subCategory: 'men', image: '/products/summer1.jpg', rating: 4.2 },
+  { id: 103, name: 'Casual Jacket', price: 3999, category: 'casual', mainCategory: 'fashion', subCategory: 'men', image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQGC30i6dUhIrG03M-bVEm6rEoGvgzFEn3-JU5fHwX7tVolVtCFRLa2BRZ4CLw8z9AmF87U5c1sd3hL5vpIGizLMey7npS0LdNY9Tp4dnfeT3k4kazsk6mbfA', rating: 4.5 },
+  { id: 104, name: 'Summer Shirt', price: 1799, category: 'casual', mainCategory: 'fashion', subCategory: 'men', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTFeVzmN3c42EYRRdY8maFCJft_uOlioa3PaQIsQlamJXImWDkhAFoERQcVVjQRltIGl4810eghC8NHD0Ju6opuzqdqdYN1yGcU4SQoZzVQTQou_ORdpC3KTw', rating: 4.3 },
+  { id: 105, name: 'Premium Suit Jacket', price: 8999, category: 'formal', mainCategory: 'fashion', subCategory: 'men', image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQJaUnJZVCQkozifOPpiBERxkENkiRci0SWrQ3bnZG2WOpwVzCgKccKi8ordwTh-K9CnyIvtlEm0GUUzmp_XCxA8V9z6Ss_Fl7qzz8ShC1D', rating: 4.9 },
+  { id: 106, name: 'Trench Coat', price: 7499, category: 'outerwear', mainCategory: 'fashion', subCategory: 'men', image: 'https://m.media-amazon.com/images/I/81DiyNIebZL.jpg', rating: 4.6 },
+  { id: 107, name: 'Denim Jacket', price: 2999, category: 'casual', mainCategory: 'fashion', subCategory: 'men', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTdh-h2BKzST1HdBBQBxnHTG2grcHBDmOAQKXyTas_UWY__E0Ot2WB2c9VRqEnW2LDG6CCile49FcaK5nBPXdq_8yCfRj21J_kXR85Bpec', rating: 4.4 },
+  { id: 108, name: 'Linen Shirt', price: 1499, category: 'casual', mainCategory: 'fashion', subCategory: 'men', image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcR7YVO__r020ji7DMgFicISd89-IEMdlnVV0MMiPTzoYaFTQ0G3ebxFpinSZ_KP_MAIrw38PXHckN9UNW5fMgeLepvLskY4ntqIU420FfopxAVeLN7okAMaIQ', rating: 4.2 },
 
   // Kids Baby
   { id: 201, name: 'Baby Romper Set', price: 899, category: 'rompers', mainCategory: 'fashion', subCategory: 'kids-baby', image: 'https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?w=400&h=500&fit=crop', rating: 4.8 },
