@@ -14,7 +14,7 @@ const WinterCollection = () => {
 
   const products = [
     { id: 1, name: 'Wool Winter Coat', price: 7999, category: 'outerwear', image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRjqbf8jCnkvukEKP-DMp8CNJ4trmhkOc6nILk7pzGEhJ7D2Rh1TYWXnUOJ-sA9tNg1iai8umwT6DoEAtCsjPpIhAbmgAm1lQbmLIP60BE', rating: 4.9 },
-    { id: 2, name: 'Cashmere Sweater', price: 5499, category: 'tops', image: '/products/coat1.jpg', rating: 4.8 },
+    { id: 2, name: 'Cashmere Sweater', price: 5499, category: 'tops', image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ3HygOf3BheFwTiAKP6YMm7ur8o2VCXJ9jF0p_aTcxPpbCWzv4Ib4QmU3g767VwHzszLnUBapjuWNSEv1DUvxpiH_AKww8KhdZMlH1YPRcD_1vCbf24BKcZeaUrg2fLLOx_rBNG9o&usqp=CAc', rating: 4.8 },
     { id: 3, name: 'Thermal Jacket', price: 4999, category: 'outerwear', image: '/products/coat1.jpg', rating: 4.7 },
     { id: 4, name: 'Winter Dress', price: 3999, category: 'dresses', image: '/products/dress1.jpg', rating: 4.6 },
     { id: 5, name: 'Heavy Coat', price: 8999, category: 'outerwear', image: '/products/coat1.jpg', rating: 4.8 },
