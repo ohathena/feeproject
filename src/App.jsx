@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
@@ -34,13 +34,12 @@ function AppContent() {
   const location = useLocation();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Detect if we’re on Login or Signup page
   const isAuthPage = location.pathname === "/login" || location.pathname === "/signup";
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      {/* ✅ Show Navbar only when NOT on login/signup */}
-      {!isAuthPage && (
+      {/* ✅ Show Navbar only when logged in */}
+      {isAuthenticated && !isAuthPage && (
         <Navbar
           isAuthenticated={isAuthenticated}
           setIsAuthenticated={setIsAuthenticated}
@@ -50,45 +49,63 @@ function AppContent() {
 
       <main className="flex-grow">
         <Routes>
-          <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+          {/* Default route — if not logged in, go to login */}
+          <Route
+            path="/"
+            element={
+              isAuthenticated ? <Home /> : <Navigate to="/login" replace />
+            }
+          />
+
+          {/* Auth Routes */}
+          <Route
+            path="/login"
+            element={<Login setIsAuthenticated={setIsAuthenticated} />}
+          />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/fashion" element={<Fashion />} />
-          <Route path="/fashion/women" element={<Women />} />
-          <Route path="/fashion/men" element={<Men />} />
-          <Route path="/fashion/kids" element={<KidsFashion />} />
-          <Route path="/fashion/kids/baby" element={<KidsBaby />} />
-          <Route path="/fashion/kids/toddler" element={<KidsToddler />} />
-          <Route path="/fashion/kids/little-kids" element={<KidsLittle />} />
-          <Route path="/fashion/kids/big-kids" element={<KidsBig />} />
-          <Route path="/fashion/kids/teens" element={<KidsTeens />} />
-          <Route path="/beauty/skincare" element={<Skincare />} />
-          <Route path="/beauty/makeup" element={<Makeup />} />
-          <Route path="/beauty/haircare" element={<Haircare />} />
-          <Route path="/beauty/fragrance" element={<Fragrance />} />
-          <Route path="/beauty/tips/skincare-routine" element={<SkincareRoutine />} />
-          <Route path="/beauty/tips/makeup-base" element={<MakeupBase />} />
-          <Route path="/beauty/tips/hair-care" element={<HairCareTips />} />
-          <Route path="/fashion/summer" element={<SummerCollection />} />
-          <Route path="/fashion/winter" element={<WinterCollection />} />
-          <Route path="/fashion/accessories" element={<Accessories />} />
-          <Route path="/beauty" element={<Beauty />} />
-          <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/new" element={<NewArrivals />} />
-          <Route path="/sale" element={<Sale />} />
+
+          {/* Protected Routes (only when logged in) */}
+          {isAuthenticated && (
+            <>
+              <Route path="/home" element={<Home />} />
+              <Route path="/fashion" element={<Fashion />} />
+              <Route path="/fashion/women" element={<Women />} />
+              <Route path="/fashion/men" element={<Men />} />
+              <Route path="/fashion/kids" element={<KidsFashion />} />
+              <Route path="/fashion/kids/baby" element={<KidsBaby />} />
+              <Route path="/fashion/kids/toddler" element={<KidsToddler />} />
+              <Route path="/fashion/kids/little-kids" element={<KidsLittle />} />
+              <Route path="/fashion/kids/big-kids" element={<KidsBig />} />
+              <Route path="/fashion/kids/teens" element={<KidsTeens />} />
+              <Route path="/beauty" element={<Beauty />} />
+              <Route path="/beauty/skincare" element={<Skincare />} />
+              <Route path="/beauty/makeup" element={<Makeup />} />
+              <Route path="/beauty/haircare" element={<Haircare />} />
+              <Route path="/beauty/fragrance" element={<Fragrance />} />
+              <Route path="/beauty/tips/skincare-routine" element={<SkincareRoutine />} />
+              <Route path="/beauty/tips/makeup-base" element={<MakeupBase />} />
+              <Route path="/beauty/tips/hair-care" element={<HairCareTips />} />
+              <Route path="/fashion/summer" element={<SummerCollection />} />
+              <Route path="/fashion/winter" element={<WinterCollection />} />
+              <Route path="/fashion/accessories" element={<Accessories />} />
+              <Route path="/wishlist" element={<Wishlist />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/new" element={<NewArrivals />} />
+              <Route path="/sale" element={<Sale />} />
+            </>
+          )}
         </Routes>
       </main>
 
-      {/* ✅ Show Footer only when NOT on login/signup */}
-      {!isAuthPage && <Footer />}
+      {/* ✅ Show footer only when logged in */}
+      {isAuthenticated && !isAuthPage && <Footer />}
     </div>
   );
 }
 
 function App() {
   return (
-    <Router>
+    <Router basename="/feeproject">
       <AppContent />
     </Router>
   );
