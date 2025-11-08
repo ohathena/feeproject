@@ -17,7 +17,7 @@ const Women = () => {
     { id: 2, name: 'Classic Winter Coat', price: 4999, category: 'outerwear', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTdDzo4m_9fu7_9QBfGAs_P4kd37ye-eVwbLl1CzqTFH9KQ1lifpa-tpRVQhsj8rH5B06JMtFeOaL4DgRiG-S82VUgr6w3EKmqxFFa8qluvGfbmGOq-mTQw', rating: 4.8 },
     { id: 3, name: 'Stylish Jacket', price: 3499, category: 'outerwear', image: 'https://image.hm.com/assets/hm/36/d8/36d81f2c83fbb395b9de3f42fbbfa545d167a436.jpg?imwidth=2160g', rating: 4.6 },
     { id: 4, name: 'Summer Collection Top', price: 1499, category: 'tops', image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQJ8iY3hMYRfOY8BwggkyVdQ0obmCK51BwtFxMpCWOl3-ilGklpcuWL-OLl_ukFMGGgkF0dd8NIsrZHC-ZZah8Ta0di9v8mJuBQvWPELmvq7hmEcl9nFix2Utk5UNkWBT2CtJ3_as7sxA&usqp=CAc', rating: 4.3 },
-    { id: 5, name: 'Designer Dress', price: 5999, category: 'dresses', image: '/products/dress1.jpg', rating: 4.9 },
+    { id: 5, name: 'Designer Dress', price: 5999, category: 'dresses', image: 'https://www.frontierraas.com/pub/media/resized/800/fr12123512_2_.webp', rating: 4.9 },
     { id: 6, name: 'Casual Jacket', price: 2999, category: 'outerwear', image: '/products/jacket1.jpg', rating: 4.4 },
     { id: 7, name: 'Premium Coat', price: 7999, category: 'outerwear', image: '/products/coat1.jpg', rating: 4.7 },
     { id: 8, name: 'Trendy Summer Wear', price: 1999, category: 'tops', image: '/products/summer1.jpg', rating: 4.2 },
