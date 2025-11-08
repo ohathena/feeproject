@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 const WishlistContext = createContext();
 
@@ -11,7 +11,24 @@ export const useWishlist = () => {
 };
 
 export const WishlistProvider = ({ children }) => {
-  const [wishlist, setWishlist] = useState([]);
+  const [wishlist, setWishlist] = useState(() => {
+    try {
+      const savedWishlist = localStorage.getItem('glamora_wishlist');
+      return savedWishlist ? JSON.parse(savedWishlist) : [];
+    } catch (error) {
+      console.error('Error loading wishlist from localStorage:', error);
+      return [];
+    }
+  });
+
+  // Save wishlist to localStorage whenever it changes
+  useEffect(() => {
+    try {
+      localStorage.setItem('glamora_wishlist', JSON.stringify(wishlist));
+    } catch (error) {
+      console.error('Error saving wishlist to localStorage:', error);
+    }
+  }, [wishlist]);
 
   const addToWishlist = (product) => {
     setWishlist(prev => {

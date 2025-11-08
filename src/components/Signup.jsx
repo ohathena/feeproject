@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useUser } from "../context/UserContext";
 
 const Signup = () => {
-   const basePath = import.meta.env.BASE_URL || '/';
+  const basePath = import.meta.env.BASE_URL || '/';
+  const navigate = useNavigate();
+  const { login } = useUser();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,7 +23,13 @@ const Signup = () => {
       alert("Passwords don't match");
       return;
     }
-    alert("Signup successful!");
+    // Create user account and login
+    login({ 
+      name: formData.name,
+      email: formData.email 
+    });
+    alert("Signup successful! Redirecting...");
+    navigate("/login");
   };
 
   return (

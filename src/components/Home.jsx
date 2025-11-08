@@ -98,7 +98,9 @@ const Home = () => {
 
   const handleVideoHover = (videoRef) => {
     if (videoRef.current) {
-      videoRef.current.play().catch(err => console.log('Play error:', err));
+      videoRef.current.play().catch(() => {
+        // Silently handle video play errors (autoplay restrictions)
+      });
     }
   };
 

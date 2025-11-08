@@ -1,11 +1,37 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaTrash, FaMinus, FaPlus } from 'react-icons/fa';
 import { useCart } from '../context/CartContext';
+import { useOrders } from '../context/OrdersContext';
+import { useUser } from '../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
-  const { cart, removeFromCart, updateQuantity, getCartTotal } = useCart();
+  const { cart, removeFromCart, updateQuantity, getCartTotal, setCart } = useCart();
+  const { placeOrder } = useOrders();
+  const { user } = useUser();
   const navigate = useNavigate();
+  const [showCheckout, setShowCheckout] = useState(false);
+  const [shippingAddress, setShippingAddress] = useState({
+    street: user?.address?.street || '',
+    city: user?.address?.city || '',
+    state: user?.address?.state || '',
+    zipCode: user?.address?.zipCode || '',
+    country: user?.address?.country || 'India',
+  });
+  const [paymentMethod, setPaymentMethod] = useState('Cash on Delivery');
+
+  useEffect(() => {
+    if (user?.address) {
+      setShippingAddress({
+        street: user.address.street || '',
+        city: user.address.city || '',
+        state: user.address.state || '',
+        zipCode: user.address.zipCode || '',
+        country: user.address.country || 'India',
+      });
+    }
+  }, [user]);
 
   return (
     <div className="pt-[170px] min-h-screen bg-gray-50">
@@ -66,9 +92,114 @@ const Cart = () => {
                   <span>₹{getCartTotal()}</span>
                 </div>
               </div>
-              <button className="w-full py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800">
-                Proceed to Checkout
-              </button>
+              {!showCheckout ? (
+                <button
+                  onClick={() => {
+                    if (!user) {
+                      alert('Please log in to place an order');
+                      navigate('/login');
+                      return;
+                    }
+                    setShowCheckout(true);
+                  }}
+                  className="w-full py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800"
+                >
+                  Proceed to Checkout
+                </button>
+              ) : (
+                <div className="space-y-4">
+                  <h3 className="font-semibold text-lg">Shipping Address</h3>
+                  <div className="space-y-3">
+                    <input
+                      type="text"
+                      placeholder="Street Address"
+                      value={shippingAddress.street}
+                      onChange={(e) =>
+                        setShippingAddress({ ...shippingAddress, street: e.target.value })
+                      }
+                      className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-rose-500"
+                    />
+                    <div className="grid grid-cols-2 gap-2">
+                      <input
+                        type="text"
+                        placeholder="City"
+                        value={shippingAddress.city}
+                        onChange={(e) =>
+                          setShippingAddress({ ...shippingAddress, city: e.target.value })
+                        }
+                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-rose-500"
+                      />
+                      <input
+                        type="text"
+                        placeholder="State"
+                        value={shippingAddress.state}
+                        onChange={(e) =>
+                          setShippingAddress({ ...shippingAddress, state: e.target.value })
+                        }
+                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-rose-500"
+                      />
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <input
+                        type="text"
+                        placeholder="ZIP Code"
+                        value={shippingAddress.zipCode}
+                        onChange={(e) =>
+                          setShippingAddress({ ...shippingAddress, zipCode: e.target.value })
+                        }
+                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-rose-500"
+                      />
+                      <input
+                        type="text"
+                        placeholder="Country"
+                        value={shippingAddress.country}
+                        onChange={(e) =>
+                          setShippingAddress({ ...shippingAddress, country: e.target.value })
+                        }
+                        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-rose-500"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2">Payment Method</h3>
+                    <select
+                      value={paymentMethod}
+                      onChange={(e) => setPaymentMethod(e.target.value)}
+                      className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-rose-500"
+                    >
+                      <option value="Cash on Delivery">Cash on Delivery</option>
+                      <option value="Credit Card">Credit Card</option>
+                      <option value="Debit Card">Debit Card</option>
+                      <option value="UPI">UPI</option>
+                      <option value="Net Banking">Net Banking</option>
+                    </select>
+                  </div>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => {
+                        if (!shippingAddress.street || !shippingAddress.city || !shippingAddress.state) {
+                          alert('Please fill in all required address fields');
+                          return;
+                        }
+                        placeOrder(cart, shippingAddress, paymentMethod, user.id);
+                        setCart([]);
+                        setShowCheckout(false);
+                        alert('Order placed successfully!');
+                        navigate('/orders');
+                      }}
+                      className="flex-1 py-3 bg-rose-500 text-white rounded-lg hover:bg-rose-600"
+                    >
+                      Place Order
+                    </button>
+                    <button
+                      onClick={() => setShowCheckout(false)}
+                      className="px-4 py-3 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         )}

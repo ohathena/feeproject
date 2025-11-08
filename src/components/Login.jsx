@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useUser } from "../context/UserContext";
 
 const Login = ({ setIsAuthenticated }) => {
   const basePath = import.meta.env.BASE_URL || '/';
   const navigate = useNavigate();
+  const { login } = useUser();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -16,6 +18,8 @@ const Login = ({ setIsAuthenticated }) => {
       alert("Please fill in all fields");
       return;
     }
+    // Login user and store their data
+    login({ email: formData.email });
     setIsAuthenticated(true);
     navigate("/");
   };

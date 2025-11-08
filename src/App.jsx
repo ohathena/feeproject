@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useUser } from "./context/UserContext";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
@@ -29,10 +30,29 @@ import Cart from './components/Cart';
 import SummerCollection from './components/SummerCollection';
 import WinterCollection from './components/WinterCollection';
 import Accessories from './components/Accessories';
+import SearchResults from './components/SearchResults';
+import Profile from './components/Profile';
+import Orders from './components/Orders';
+
+
 
 function AppContent() {
   const location = useLocation();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { user } = useUser();
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    // Check if user exists in localStorage to persist authentication
+    try {
+      const savedUser = localStorage.getItem('glamora_user');
+      return !!savedUser;
+    } catch {
+      return false;
+    }
+  });
+
+  // Sync authentication state with user context
+  useEffect(() => {
+    setIsAuthenticated(!!user);
+  }, [user]);
 
   const isAuthPage = location.pathname === "/login" || location.pathname === "/signup";
 
@@ -92,6 +112,10 @@ function AppContent() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/new" element={<NewArrivals />} />
               <Route path="/sale" element={<Sale />} />
+              <Route path="/search" element={<SearchResults />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/orders" element={<Orders />} />
+             
             </>
           )}
         </Routes>

@@ -3,23 +3,34 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaHeart, FaShoppingCart, FaUser, FaSearch, FaBars, FaTimes } from 'react-icons/fa';
 import { useCart } from '../context/CartContext';
+import { useUser } from '../context/UserContext';
 
 const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
-  // Base path for GitHub Pages - change this to match your repo name
   const basePath = import.meta.env.BASE_URL || '/';
   const { getCartCount } = useCart();
+  const { logout } = useUser();
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [query, setQuery] = useState('');
   const navigate = useNavigate();
 
   const handleLogout = () => {
     setShowProfileMenu(false);
+    logout();
     setIsAuthenticated(false);
     navigate('/login');
   };
 
-  const closeMobileMenu = () => {
-    setShowMobileMenu(false);
+  const closeMobileMenu = () => setShowMobileMenu(false);
+
+  // ✅ Updated Search
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (query.trim()) {
+      navigate(`/search?query=${encodeURIComponent(query.trim())}`);
+      setQuery('');
+      closeMobileMenu();
+    }
   };
 
   return (
@@ -37,7 +48,7 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
       <nav className="bg-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="h-16 sm:h-20 lg:h-24 flex items-center justify-between border-b border-gray-100">
-            {/* Hamburger Menu Button (Mobile) */}
+            {/* Mobile Menu Button */}
             <button
               onClick={() => setShowMobileMenu(!showMobileMenu)}
               className="lg:hidden text-2xl text-gray-700 hover:text-rose-500 transition-colors"
@@ -47,26 +58,35 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
 
             {/* Logo */}
             <Link to="/" className="flex items-center">
-              <img src={`${basePath}logo.png`} alt="Glamora Logo" className="h-12 sm:h-16 lg:h-20 w-auto" />
+              <img
+                src={`${basePath}logo.png`}
+                alt="Glamora Logo"
+                className="h-12 sm:h-16 lg:h-20 w-auto"
+              />
             </Link>
 
-            {/* Search Bar (Desktop) */}
-            <div className="hidden lg:flex items-center w-1/3">
+            {/* ✅ Search Bar (Desktop) */}
+            <form onSubmit={handleSearch} className="hidden lg:flex items-center w-1/3">
               <div className="relative w-full">
                 <input
                   type="text"
                   placeholder="Search for products..."
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
                   className="w-full px-4 py-2 rounded-full bg-gray-50 border border-gray-200 focus:outline-none focus:border-rose-300"
                 />
-                <FaSearch className="absolute right-4 top-3 text-gray-400" />
+                <button type="submit">
+                  <FaSearch className="absolute right-4 top-3 text-gray-400 cursor-pointer" />
+                </button>
               </div>
-            </div>
+            </form>
 
             {/* Icons */}
             <div className="flex items-center space-x-4 sm:space-x-6 lg:space-x-8">
               <Link to="/wishlist" className="text-xl sm:text-2xl text-gray-700 hover:text-rose-500 transition-colors">
                 <FaHeart />
               </Link>
+
               <Link to="/cart" className="relative text-xl sm:text-2xl text-gray-700 hover:text-rose-500 transition-colors">
                 <FaShoppingCart />
                 {getCartCount() > 0 && (
@@ -75,6 +95,8 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
                   </span>
                 )}
               </Link>
+
+              {/* Profile Dropdown */}
               <div className="relative">
                 <button
                   onClick={() => setShowProfileMenu(!showProfileMenu)}
@@ -85,15 +107,15 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
 
                 {showProfileMenu && (
                   <div className="absolute right-0 mt-4 w-48 bg-white rounded-lg shadow-xl py-2 border border-gray-100">
-                    <Link 
-                      to="/profile" 
+                    <Link
+                      to="/profile"
                       className="block px-4 py-2 text-gray-700 hover:bg-rose-50"
                       onClick={() => setShowProfileMenu(false)}
                     >
                       Profile
                     </Link>
-                    <Link 
-                      to="/orders" 
+                    <Link
+                      to="/orders"
                       className="block px-4 py-2 text-gray-700 hover:bg-rose-50"
                       onClick={() => setShowProfileMenu(false)}
                     >
@@ -122,22 +144,18 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* ✅ Mobile Overlay */}
       {showMobileMenu && (
-        <div 
-          className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
-          onClick={closeMobileMenu}
-        />
+        <div className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40" onClick={closeMobileMenu} />
       )}
 
-      {/* Mobile Menu Sidebar */}
+      {/* ✅ Mobile Menu Drawer */}
       <div
         className={`lg:hidden fixed top-0 left-0 h-full w-64 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
           showMobileMenu ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         <div className="p-6">
-          {/* Close Button */}
           <button
             onClick={closeMobileMenu}
             className="absolute top-4 right-4 text-2xl text-gray-700 hover:text-rose-500"
@@ -145,61 +163,34 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
             <FaTimes />
           </button>
 
-          {/* Logo in Mobile Menu */}
           <div className="mb-8 mt-2">
             <img src={`${basePath}logo.png`} alt="Glamora Logo" className="h-16 w-auto" />
           </div>
 
-          {/* Search Bar (Mobile) */}
-          <div className="mb-6">
+          {/* ✅ Mobile Search */}
+          <form onSubmit={handleSearch} className="mb-6">
             <div className="relative w-full">
               <input
                 type="text"
                 placeholder="Search..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
                 className="w-full px-4 py-2 rounded-full bg-gray-50 border border-gray-200 focus:outline-none focus:border-rose-300 text-sm"
               />
-              <FaSearch className="absolute right-4 top-3 text-gray-400 text-sm" />
+              <button type="submit">
+                <FaSearch className="absolute right-4 top-3 text-gray-400 text-sm cursor-pointer" />
+              </button>
             </div>
-          </div>
+          </form>
 
-          {/* Navigation Links */}
-          <nav className="space-y-1">
-            <Link 
-              to="/" 
-              className="block px-4 py-3 text-gray-700 hover:bg-rose-50 hover:text-rose-500 rounded-lg font-medium"
-              onClick={closeMobileMenu}
-            >
-              Home
-            </Link>
-            <Link 
-              to="/fashion" 
-              className="block px-4 py-3 text-gray-700 hover:bg-rose-50 hover:text-rose-500 rounded-lg font-medium"
-              onClick={closeMobileMenu}
-            >
-              Fashion
-            </Link>
-            <Link 
-              to="/beauty" 
-              className="block px-4 py-3 text-gray-700 hover:bg-rose-50 hover:text-rose-500 rounded-lg font-medium"
-              onClick={closeMobileMenu}
-            >
-              Beauty
-            </Link>
-            <Link 
-              to="/new" 
-              className="block px-4 py-3 text-gray-700 hover:bg-rose-50 hover:text-rose-500 rounded-lg font-medium"
-              onClick={closeMobileMenu}
-            >
-              New Arrivals
-            </Link>
-            <Link 
-              to="/sale" 
-              className="block px-4 py-3 text-gray-700 hover:bg-rose-50 hover:text-rose-500 rounded-lg font-medium"
-              onClick={closeMobileMenu}
-            >
-              Sale
-            </Link>
-          </nav>
+          {/* Mobile Links */}
+          <div className="space-y-4">
+            <Link to="/" onClick={closeMobileMenu} className="block text-gray-700 hover:text-rose-500 font-medium">Home</Link>
+            <Link to="/fashion" onClick={closeMobileMenu} className="block text-gray-700 hover:text-rose-500 font-medium">Fashion</Link>
+            <Link to="/beauty" onClick={closeMobileMenu} className="block text-gray-700 hover:text-rose-500 font-medium">Beauty</Link>
+            <Link to="/new" onClick={closeMobileMenu} className="block text-gray-700 hover:text-rose-500 font-medium">New Arrivals</Link>
+            <Link to="/sale" onClick={closeMobileMenu} className="block text-gray-700 hover:text-rose-500 font-medium">Sale</Link>
+          </div>
         </div>
       </div>
     </header>
