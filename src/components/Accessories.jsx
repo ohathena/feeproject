@@ -16,7 +16,7 @@ const Accessories = () => {
     { id: 1, name: 'Designer Handbag', price: 5999, category: 'bags', image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTCwYYwpfbmzEyV0lm58XVscb6waXtttg4wVR_X80STF5iaPONbvkE6ME7-qH90d-CYZwIBHLOOOB9GrzrXDveirFBGO6IisHSM3oL-7O3-lq3m6IJhwRjtXOGe', rating: 4.8 },
     { id: 2, name: 'Leather Belt', price: 1499, category: 'belts', image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTHxTcAVv9q4h3XIhHyw75zQlGamxF51YcuCWOqxN_nuvWP9GBXZFCyMeei1gwahgADQdh_bbR2Hjpg1BfiuFtBf1uQUYLUQAfSfXQGwPk2', rating: 4.6 },
     { id: 3, name: 'Sunglasses', price: 2499, category: 'eyewear', image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRkUVxkbOUltcutIWBKGRHmwz8wyoOpL9d_H0rbO-1FZ6WTSfkx4xPKmETtN79SqevzZciwa1K0OI4L6_YZXrz5y7A8a_YRUQ7UcJCjyO4yazW4j9sXnKy_', rating: 4.7 },
-    { id: 4, name: 'Silk Scarf', price: 1999, category: 'scarves', image: '/products/summer1.jpg', rating: 4.5 },
+    { id: 4, name: 'Silk Scarf', price: 1999, category: 'scarves', image: 'https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/9/f/9f5c68cSZ-DGSCARF-6_1.jpg?rnd=20200526195200&tr=w-512', rating: 4.5 },
     { id: 5, name: 'Watch', price: 6999, category: 'jewelry', image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRu44qvP9ZCb3xfU4Pxt4E_22qGDlY18Ns4Wf2IBw7GL_6O6NJ8YcuK5xBzMy-5nr3Yq34WGOmi1zyKtvzxW37RKtcu0LGxfnk5rZHgcctErha6VvwFVAYv', rating: 4.9 },
     { id: 6, name: 'Hat', price: 1299, category: 'hats', image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSRATniqz_c2lX6YSPwkiHaq92Fi20iAVXw3S8kXHAxxXOpU2hTsFgDEAwChbP-aLNK0R_W5sh76WGnd3joWg9mdBu2VE00MHliZehM-T8AGDyV_Kr0ZbUr', rating: 4.4 },
   ];
